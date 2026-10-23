@@ -1,0 +1,47 @@
+when:
+  - event: [ "push" ]
+    branch: [ "**" ]
+  - event: [ "pull_request" ]
+    branch: [ "main" ]
+  - event: [ "manual" ]
+
+engine: "nixery"
+
+dependencies:
+  nixpkgs:
+    - jdk25
+    - bash
+    - coreutils
+    - curl
+    - findutils
+    - gnugrep
+    - gnused
+
+environment:
+  GRADLE_USER_HOME: ".gradle-home"
+  JAVA_HOME: "/lib/openjdk"
+  # The runner has far less memory than a dev machine
+  GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx2g -Dorg.gradle.workers.max=2"
+
+cache:
+  - key: "gradle-check"
+    hash:
+      - "gradle/wrapper/gradle-wrapper.properties"
+      - "gradle/libs.versions.toml"
+      - "settings.gradle.kts"
+      - "versions/26.1.properties"
+      - "versions/26.1.1.properties"
+      - "versions/26.1.2.properties"
+      - "versions/26.2.properties"
+      - "versions/26.3.properties"
+    paths: [ ".gradle-home/caches", ".gradle-home/wrapper", ".gradle/loom-cache" ]
+
+steps:
+  - name: "Show resources"
+    command: "nproc; grep -E 'MemTotal|MemAvailable' /proc/meminfo; cat /sys/fs/cgroup/memory.max 2>/dev/null || true"
+  - name: "Check the Gradle wrapper"
+    command: |
+      version=$(sed -n 's/^distributionUrl=.*gradle-\(.*\)-bin\.zip$/\1/p' gradle/wrapper/gradle-wrapper.properties)
+      curl -fsSL --retry 3 "https://services.gradle.org/distributions/gradle-$version-wrapper.jar.sha256" | sed 's/$/  gradle\/wrapper\/gradle-wrapper.jar/' | sha256sum -c -
+  - name: "Lint, unit tests and build"
+    command: "./gradlew precommit buildAll -Pstrict --continue"

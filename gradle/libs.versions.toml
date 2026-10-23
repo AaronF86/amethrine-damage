@@ -1,0 +1,30 @@
+[versions]
+# see https://maven.fabricmc.net/fabric-loom/fabric-loom.gradle.plugin/maven-metadata.xml for new versions
+loom = "1.18.1"
+# see https://projects.neoforged.net/neoforged/moddevgradle for new versions
+moddev = "2.0.147"
+# see https://github.com/diffplug/spotless/blob/main/plugin-gradle/CHANGES.md for new versions
+spotless = "8.0.0"
+minotaur = "2.10.0"
+# Fabric and NeoForge both bundle Mixin and MixinExtras. If you need to update, check what version they are using
+# to see what is compatible:
+# https://github.com/neoforged/NeoForge/blob/26.3.x/gradle.properties#L37
+# https://github.com/FabricMC/fabric-loader/blob/master/gradle.properties#L12
+mixin = "0.17.3+mixin.0.8.7"
+mixinextras = "0.5.3"
+# The Fabric installer whose server launcher runs the in-game tests; see https://maven.fabricmc.net/net/fabricmc/fabric-installer/
+fabric-installer = "1.0.3"
+junit = "5.12.2"
+
+[libraries]
+minotaur = { module = "com.modrinth.minotaur:Minotaur", version.ref = "minotaur" }
+mixin = { module = "net.fabricmc:sponge-mixin", version.ref = "mixin" }
+mixinextras-common = { module = "io.github.llamalad7:mixinextras-common", version.ref = "mixinextras" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+[plugins]
+loom = { id = "net.fabricmc.fabric-loom", version.ref = "loom" }
+moddev = { id = "net.neoforged.moddev", version.ref = "moddev" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

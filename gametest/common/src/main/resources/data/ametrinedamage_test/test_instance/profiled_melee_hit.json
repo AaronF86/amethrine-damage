@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:function",
+  "function": "ametrinedamage_test:profiled_melee_hit",
+  "environment": "minecraft:default",
+  "structure": "minecraft:empty",
+  "max_ticks": 5,
+  "setup_ticks": 1,
+  "required": true
+}

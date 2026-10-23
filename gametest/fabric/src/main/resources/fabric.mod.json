@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "ametrinedamage_test",
+  "version": "${version}",
+  "name": "Ametrine Damage Tests",
+  "description": "In-game tests for Ametrine Damage.",
+  "license": "${license}",
+  "environment": "*",
+  "mixins": [
+    "ametrinedamage_test.mixins.json"
+  ],
+  "entrypoints": {
+    "main": [
+      "tech.aaronf86.ametrine.damage.gametest.AmetrineGameTestsFabric"
+    ],
+    "ametrinedamage": [
+      "tech.aaronf86.ametrine.damage.gametest.AmetrineGameTestsFabric"
+    ]
+  },
+  "depends": {
+    "ametrinedamage": "*",
+    "fabric-api": "*"
+  }
+}

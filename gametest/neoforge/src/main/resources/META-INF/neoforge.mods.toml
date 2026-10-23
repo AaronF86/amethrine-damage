@@ -1,0 +1,19 @@
+modLoader = "javafml"
+loaderVersion = "${neoforge_loader_version_range}"
+license = "${license}"
+[[mods]]
+modId = "ametrinedamage_test"
+version = "${version}"
+displayName = "Ametrine Damage Tests"
+description = '''In-game tests for Ametrine Damage.'''
+[[mixins]]
+config = "ametrinedamage_test.mixins.json"
+[[mixins]]
+config = "ametrinedamage_test_neoforge.mixins.json"
+
+[[dependencies.ametrinedamage_test]]
+modId = "ametrinedamage"
+type = "required"
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"

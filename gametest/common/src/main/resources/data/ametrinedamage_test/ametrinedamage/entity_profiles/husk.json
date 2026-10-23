@@ -1,0 +1,17 @@
+{
+  "entities": [
+    "minecraft:husk"
+  ],
+  "defense": {
+    "defense": {
+      "ametrinedamage_test:slash": 10,
+      "ametrinedamage_test:fire": 10
+    },
+    "negation": {
+      "ametrinedamage_test:slash": 0.5
+    },
+    "resistance": {
+      "ametrinedamage_test:poise": 50
+    }
+  }
+}

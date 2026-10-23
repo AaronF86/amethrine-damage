@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:function",
+  "function": "ametrinedamage_test:buildup_and_decay",
+  "environment": "minecraft:default",
+  "structure": "minecraft:empty",
+  "max_ticks": 400,
+  "setup_ticks": 1,
+  "required": true
+}

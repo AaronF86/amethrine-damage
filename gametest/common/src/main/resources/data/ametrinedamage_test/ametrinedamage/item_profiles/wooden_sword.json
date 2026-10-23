@@ -1,0 +1,14 @@
+{
+  "items": [
+    "minecraft:wooden_sword"
+  ],
+  "attack": {
+    "split": {
+      "ametrinedamage_test:slash": 1.0
+    },
+    "buildup": {
+      "ametrinedamage_test:bleed": 40,
+      "ametrinedamage_test:poise": 12
+    }
+  }
+}

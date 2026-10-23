@@ -1,0 +1,11 @@
+{
+  "damage_types": [
+    "minecraft:cactus"
+  ],
+  "attack": {
+    "split": {
+      "ametrinedamage_test:fire": 1.0
+    }
+  },
+  "bypass_defense": true
+}
